@@ -1,0 +1,232 @@
+<svg width="100%" viewBox="0 0 900 1600" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Chained Diamond Model — Operation Greenfield</title>
+<desc>Five diamonds chained by shared vertices tracing the intrusion chain from initial access to retreat.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <style>
+    text { font-family: sans-serif; }
+    .th  { font-size: 14px; font-weight: 500; fill: #3d3d3a; }
+    .ts  { font-size: 12px; fill: #73726c; }
+    .label { font-size: 13px; font-weight: 500; fill: #3d3d3a; }
+    .edge  { fill: none; stroke: #c8c6be; stroke-width: 1; }
+    .edge-dash { fill: none; stroke: #c8c6be; stroke-width: 1; stroke-dasharray: 8 5; }
+    .link  { fill: none; stroke-width: 2; stroke-dasharray: 5 4; }
+    .dot-adv  { fill: #FAECE7; stroke: #993C1D; stroke-width: 1; }
+    .dot-infra { fill: #E6F1FB; stroke: #185FA5; stroke-width: 1; }
+    .dot-cap  { fill: #E1F5EE; stroke: #0F6E56; stroke-width: 1; }
+    .dot-vic  { fill: #FAEEDA; stroke: #854F0B; stroke-width: 1; }
+    .dot-neu  { fill: #F1EFE8; stroke: #5F5E5A; stroke-width: 1; }
+    .dot-shared { stroke-width: 2.5; }
+    .face-adv  { fill: #FAECE7; opacity: 0.35; }
+    .face-infra { fill: #E6F1FB; opacity: 0.35; }
+    .face-cap  { fill: #E1F5EE; opacity: 0.35; }
+    .face-vic  { fill: #FAEEDA; opacity: 0.35; }
+    .note { font-size: 11px; fill: #888780; }
+    .event { font-size: 14px; font-weight: 500; fill: #2C2C2A; }
+  </style>
+</defs>
+
+<!-- LEGEND -->
+<circle cx="44" cy="22" r="6" class="dot-adv"/>
+<text class="ts" x="56" y="27">Adversary</text>
+<circle cx="154" cy="22" r="6" class="dot-infra"/>
+<text class="ts" x="166" y="27">Infrastructure</text>
+<circle cx="294" cy="22" r="6" class="dot-cap"/>
+<text class="ts" x="306" y="27">Capability</text>
+<circle cx="404" cy="22" r="6" class="dot-vic"/>
+<text class="ts" x="416" y="27">Victim</text>
+<circle cx="494" cy="22" r="6" class="dot-neu"/>
+<text class="ts" x="506" y="27">Severed</text>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- DIAMOND 1 — Initial Access                        -->
+<!-- centre (180,210) half=130                         -->
+<!-- top(180,80) right(310,210) bottom(180,340) left(50,210) -->
+<!-- ══════════════════════════════════════════════════ -->
+<text class="event" x="180" y="64" text-anchor="middle">Event 1 — Initial access</text>
+<polygon points="180,80 310,210 180,340 50,210" class="edge"/>
+
+<polygon points="180,80 310,210 50,210" class="face-adv"/>
+<polygon points="180,340 310,210 50,210" class="face-vic"/>
+
+<text class="label" x="180" y="155" text-anchor="middle">Adversary</text>
+<text class="ts" x="180" y="172" text-anchor="middle">Scattered Spider</text>
+<text class="ts" x="180" y="188" text-anchor="middle">octotempest@operator</text>
+
+<text class="label" x="180" y="238" text-anchor="middle">Victim</text>
+<text class="ts" x="180" y="255" text-anchor="middle">a.kumar — GF-DEV01</text>
+<text class="ts" x="180" y="271" text-anchor="middle">developer acct, no MFA</text>
+
+<circle cx="50" cy="210" r="6" class="dot-cap"/>
+<text class="ts" x="38" y="196" text-anchor="end">Capability</text>
+<text class="ts" x="38" y="211" text-anchor="end">curl|bash</text>
+<text class="ts" x="38" y="226" text-anchor="end">install.sh</text>
+
+<circle cx="310" cy="210" r="8" class="dot-infra dot-shared"/>
+<text class="ts" x="322" y="196" text-anchor="start">Infrastructure</text>
+<text class="ts" x="322" y="211" text-anchor="start">dl.abordsecurity.space</text>
+<text class="ts" x="322" y="226" text-anchor="start">Cloudflare CDN</text>
+
+<circle cx="180" cy="80" r="6" class="dot-adv"/>
+<circle cx="180" cy="340" r="6" class="dot-vic"/>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- chain link D1 infra → D2 infra                   -->
+<!-- D1 right (310,210) → D2 left (490,210)           -->
+<!-- ══════════════════════════════════════════════════ -->
+<line x1="318" y1="210" x2="482" y2="210" class="link" stroke="#185FA5"/>
+<text class="note" x="400" y="200" text-anchor="middle">shared infrastructure</text>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- DIAMOND 2 — Implant & Credential Harvest          -->
+<!-- centre (620,210) half=130                         -->
+<!-- top(620,80) right(750,210) bottom(620,340) left(490,210) -->
+<!-- ══════════════════════════════════════════════════ -->
+<text class="event" x="620" y="64" text-anchor="middle">Event 2 — Implant &amp; harvest</text>
+<polygon points="620,80 750,210 620,340 490,210" class="edge"/>
+
+<polygon points="620,80 750,210 490,210" class="face-adv"/>
+<polygon points="620,340 750,210 490,210" class="face-vic"/>
+
+<text class="label" x="620" y="155" text-anchor="middle">Adversary</text>
+<text class="ts" x="620" y="172" text-anchor="middle">Scattered Spider</text>
+<text class="ts" x="620" y="188" text-anchor="middle">helix-update PID 34616</text>
+
+<text class="label" x="620" y="238" text-anchor="middle">Victim</text>
+<text class="ts" x="620" y="255" text-anchor="middle">GF-DEV01</text>
+<text class="ts" x="620" y="271" text-anchor="middle">creds harvested to disk</text>
+
+<circle cx="490" cy="210" r="8" class="dot-infra dot-shared"/>
+
+<circle cx="750" cy="210" r="6" class="dot-cap"/>
+<text class="ts" x="762" y="196" text-anchor="start">Capability</text>
+<text class="ts" x="762" y="211" text-anchor="start">Sliver C2</text>
+<text class="ts" x="762" y="226" text-anchor="start">aws/kubectl/ssh</text>
+
+<circle cx="620" cy="80" r="6" class="dot-adv"/>
+<circle cx="620" cy="340" r="8" class="dot-vic dot-shared"/>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- chain link D2 victim → D3 victim                 -->
+<!-- D2 bottom (620,340) → D3 top (620,420)           -->
+<!-- ══════════════════════════════════════════════════ -->
+<line x1="620" y1="348" x2="620" y2="412" class="link" stroke="#BA7517"/>
+<text class="note" x="636" y="383" text-anchor="start">shared victim</text>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- DIAMOND 3 — Backdoor & Persistence                -->
+<!-- FLIPPED: victim at top                            -->
+<!-- centre (620,550) half=130                         -->
+<!-- top(620,420) right(750,550) bottom(620,680) left(490,550) -->
+<!-- ══════════════════════════════════════════════════ -->
+<text class="event" x="620" y="406" text-anchor="middle">Event 3 — Backdoor &amp; persistence</text>
+<polygon points="620,420 750,550 620,680 490,550" class="edge"/>
+
+<polygon points="620,420 750,550 490,550" class="face-vic"/>
+<polygon points="620,680 750,550 490,550" class="face-adv"/>
+
+<text class="label" x="620" y="477" text-anchor="middle">Victim</text>
+<text class="ts" x="620" y="494" text-anchor="middle">GF-DEV01 — a.kumar</text>
+<text class="ts" x="620" y="510" text-anchor="middle">authorized_keys written</text>
+
+<text class="label" x="620" y="598" text-anchor="middle">Adversary</text>
+<text class="ts" x="620" y="615" text-anchor="middle">sancadmin session</text>
+<text class="ts" x="620" y="631" text-anchor="middle">104 min after implant</text>
+
+<circle cx="490" cy="550" r="6" class="dot-cap"/>
+<text class="ts" x="478" y="536" text-anchor="end">Capability</text>
+<text class="ts" x="478" y="551" text-anchor="end">helix-sync (Ligolo)</text>
+<text class="ts" x="478" y="566" text-anchor="end">systemctl enable</text>
+
+<circle cx="750" cy="550" r="6" class="dot-infra"/>
+<text class="ts" x="762" y="536" text-anchor="start">Infrastructure</text>
+<text class="ts" x="762" y="551" text-anchor="start">194.36.110.139:9080</text>
+<text class="ts" x="762" y="566" text-anchor="start">C2 listener</text>
+
+<circle cx="620" cy="420" r="8" class="dot-vic dot-shared"/>
+<circle cx="620" cy="680" r="8" class="dot-adv dot-shared"/>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- chain link D3 bottom → D4 top                    -->
+<!-- D3 bottom (620,680) → D4 top (620,760)           -->
+<!-- ══════════════════════════════════════════════════ -->
+<line x1="620" y1="688" x2="620" y2="752" class="link" stroke="#BA7517"/>
+<text class="note" x="636" y="723" text-anchor="start">victim as jump host</text>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- DIAMOND 4 — Lateral Movement (Failed)             -->
+<!-- centre (620,890) half=130                         -->
+<!-- top(620,760) right(750,890) bottom(620,1020) left(490,890) -->
+<!-- ══════════════════════════════════════════════════ -->
+<text class="event" x="620" y="746" text-anchor="middle">Event 4 — Lateral movement (failed)</text>
+<polygon points="620,760 750,890 620,1020 490,890" class="edge"/>
+
+<polygon points="620,760 750,890 490,890" class="face-vic"/>
+<polygon points="620,1020 750,890 490,890" class="face-cap"/>
+
+<text class="label" x="620" y="817" text-anchor="middle">Victim</text>
+<text class="ts" x="620" y="834" text-anchor="middle">GF-WS01 targeted</text>
+<text class="ts" x="620" y="850" text-anchor="middle">Defender for Cloud active</text>
+
+<text class="label" x="620" y="938" text-anchor="middle">Capability</text>
+<text class="ts" x="620" y="955" text-anchor="middle">smb, winrm, wmi</text>
+<text class="ts" x="620" y="971" text-anchor="middle">all RC=1 — all failed</text>
+
+<circle cx="490" cy="890" r="6" class="dot-adv"/>
+<text class="ts" x="478" y="876" text-anchor="end">Adversary</text>
+<text class="ts" x="478" y="891" text-anchor="end">sancadmin</text>
+<text class="ts" x="478" y="906" text-anchor="end">improvising</text>
+
+<circle cx="750" cy="890" r="6" class="dot-infra"/>
+<text class="ts" x="762" y="876" text-anchor="start">Infrastructure</text>
+<text class="ts" x="762" y="891" text-anchor="start">10.1.0.133 WS01</text>
+<text class="ts" x="762" y="906" text-anchor="start">never reached</text>
+
+<circle cx="620" cy="760" r="6" class="dot-vic"/>
+<circle cx="620" cy="1020" r="8" class="dot-cap dot-shared"/>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- chain link D4 capability → D5 capability         -->
+<!-- D4 bottom (620,1020) → D5 top (620,1100)         -->
+<!-- ══════════════════════════════════════════════════ -->
+<line x1="620" y1="1028" x2="620" y2="1092" class="link" stroke="#1D9E75"/>
+<text class="note" x="636" y="1063" text-anchor="start">capability persists on disk</text>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- DIAMOND 5 — Retreat / End of Shift                -->
+<!-- FLIPPED: capability at top                        -->
+<!-- centre (620,1230) half=130                        -->
+<!-- top(620,1100) right(750,1230) bottom(620,1360) left(490,1230) -->
+<!-- dashed outline = incomplete                       -->
+<!-- ══════════════════════════════════════════════════ -->
+<text class="event" x="620" y="1086" text-anchor="middle">Event 5 — Retreat (end of shift)</text>
+<polygon points="620,1100 750,1230 620,1360 490,1230" class="edge-dash"/>
+
+<polygon points="620,1100 750,1230 490,1230" class="face-cap"/>
+<polygon points="620,1360 750,1230 490,1230" class="face-vic"/>
+
+<text class="label" x="620" y="1157" text-anchor="middle">Capability</text>
+<text class="ts" x="620" y="1174" text-anchor="middle">3 artefacts remain</text>
+<text class="ts" x="620" y="1190" text-anchor="middle">running/persistent/dormant</text>
+
+<text class="label" x="620" y="1278" text-anchor="middle">Victim</text>
+<text class="ts" x="620" y="1295" text-anchor="middle">GF-DEV01 still owned</text>
+<text class="ts" x="620" y="1311" text-anchor="middle">helix-update still running</text>
+
+<circle cx="490" cy="1230" r="6" class="dot-neu"/>
+<text class="ts" x="478" y="1216" text-anchor="end">Adversary</text>
+<text class="ts" x="478" y="1231" text-anchor="end">disconnected</text>
+<text class="ts" x="478" y="1246" text-anchor="end">session gone</text>
+
+<circle cx="750" cy="1230" r="6" class="dot-neu"/>
+<text class="ts" x="762" y="1216" text-anchor="start">Infrastructure</text>
+<text class="ts" x="762" y="1231" text-anchor="start">C2 severed</text>
+<text class="ts" x="762" y="1246" text-anchor="start">backdoor lives on</text>
+
+<circle cx="620" cy="1100" r="8" class="dot-cap dot-shared"/>
+<circle cx="620" cy="1360" r="6" class="dot-vic"/>
+
+<text class="note" x="620" y="1395" text-anchor="middle">dashed outline = incomplete — adversary can return via authorized_keys backdoor</text>
+</svg>
